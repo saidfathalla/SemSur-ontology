@@ -1,0 +1,1032 @@
+@prefix : <http://vocab.cs.uni-bonn.de/semanticSurvey/GenericOntology#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ns: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix or: <http://vocab.cs.uni-bonn.de/unistruct#> .
+@prefix mls: <http://www.w3.org/ns/mls#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wot: <http://xmlns.com/wot/0.1/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/TR/prov-o/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swrc: <http://swrc.ontoware.org/ontology#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@base <http://vocab.cs.uni-bonn.de/semanticSurvey/GenericOntology> .
+
+<http://vocab.cs.uni-bonn.de/semanticSurvey/GenericOntology> rdf:type owl:Ontology ;
+                                                              owl:versionIRI <http://vocab.cs.uni-bonn.de/semanticSurvey/GenericOntology/1.0.0> ;
+                                                              owl:imports <http://swrc.ontoware.org/ontology> ,
+                                                                          doap: ,
+                                                                          <http://dataid.dbpedia.org/ns/core#> ,
+                                                                          <http://purl.org/spar/deo> ,
+                                                                          <http://www.w3.org/2016/03/mls#> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://vocab.cs.uni-bonn.de/unistruct#accessedAPI
+or:accessedAPI rdf:type owl:ObjectProperty ;
+               rdfs:domain or:Framework ;
+               rdfs:range or:API .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#addressProblem
+or:addressProblem rdf:type owl:ObjectProperty ;
+                  rdfs:domain or:Approach ,
+                              or:Framework ;
+                  rdfs:range or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#adressesApproach
+or:adressesApproach rdf:type owl:ObjectProperty ;
+                    rdfs:domain swrc:Article ;
+                    rdfs:range or:Approach .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#containsBibliographicResource
+or:containsBibliographicResource rdf:type owl:ObjectProperty ;
+                                 rdfs:domain or:RelatedWork ;
+                                 rdfs:range terms:BibliographicResource .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#evaluatesApproach
+or:evaluatesApproach rdf:type owl:ObjectProperty ;
+                     rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+                     rdfs:range or:Approach .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#followsEvaluationMethod
+or:followsEvaluationMethod rdf:type owl:ObjectProperty ;
+                           rdfs:domain or:Benchmark ;
+                           rdfs:range or:EvaluationMethod .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#forProblem
+or:forProblem rdf:type owl:ObjectProperty ;
+              rdfs:domain or:Benchmark ;
+              rdfs:range or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasArticle
+or:hasArticle rdf:type owl:ObjectProperty ;
+              rdfs:domain or:Benchmark ;
+              rdfs:range swrc:Article .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasContributor
+or:hasContributor rdf:type owl:ObjectProperty ;
+                  rdfs:domain or:EvaluationMethod ;
+                  rdfs:range or:Developer ,
+                             or:Professor ,
+                             or:StudentAssistant .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasDimension
+or:hasDimension rdf:type owl:ObjectProperty ;
+                rdfs:domain or:EvaluationMethod ;
+                rdfs:range or:EvaluationDimensions .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasEvaluation
+or:hasEvaluation rdf:type owl:ObjectProperty ;
+                 rdfs:domain or:Approach ,
+                             or:Framework ;
+                 rdfs:range <http://salt.semanticauthoring.org/ontologies/sro#Evaluation> .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasEvaluationDimension
+or:hasEvaluationDimension rdf:type owl:ObjectProperty .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasEvaluationProcess
+or:hasEvaluationProcess rdf:type owl:ObjectProperty .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasHypothesis
+or:hasHypothesis rdf:type owl:ObjectProperty .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasImplementation
+or:hasImplementation rdf:type owl:ObjectProperty ;
+                     rdfs:domain or:Approach ;
+                     rdfs:range or:Framework .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasMovitation
+or:hasMovitation rdf:type owl:ObjectProperty ;
+                 rdfs:domain or:Problem ;
+                 rdfs:range <http://salt.semanticauthoring.org/ontologies/sro#Motivation> .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasObservations
+or:hasObservations rdf:type owl:ObjectProperty ;
+                   rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+                   rdfs:range or:Observations .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasRequirement
+or:hasRequirement rdf:type owl:ObjectProperty ;
+                  rdfs:domain or:Approach ,
+                              or:Framework ;
+                  rdfs:range or:Requirements ,
+                             or:TechnicalRequirement .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasResult
+or:hasResult rdf:type owl:ObjectProperty ;
+             rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+             rdfs:range or:Results .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasSolution
+or:hasSolution rdf:type owl:ObjectProperty ,
+                        owl:SymmetricProperty ;
+               rdfs:domain or:Problem ;
+               rdfs:range or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#implementedIn
+or:implementedIn rdf:type owl:ObjectProperty ;
+                 rdfs:domain or:Framework ;
+                 rdfs:range or:ProgrammingLanguage .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#isForProblem
+or:isForProblem rdf:type owl:ObjectProperty ;
+                rdfs:domain or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#isSubproblem
+or:isSubproblem rdf:type owl:ObjectProperty ;
+                rdfs:domain or:Problem ;
+                rdfs:range or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#motivatesApproach
+or:motivatesApproach rdf:type owl:ObjectProperty ;
+                     rdfs:domain <http://salt.semanticauthoring.org/ontologies/sro#Motivation> ;
+                     rdfs:range or:Approach .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#proposeFramework
+or:proposeFramework rdf:type owl:ObjectProperty ;
+                    rdfs:domain swrc:Publication ;
+                    rdfs:range or:Framework .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#proposedByApproach
+or:proposedByApproach rdf:type owl:ObjectProperty ;
+                      rdfs:domain mls:Model ;
+                      rdfs:range or:Approach .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#proposedByPerson
+or:proposedByPerson rdf:type owl:ObjectProperty ;
+                    rdfs:domain or:Approach ;
+                    rdfs:range foaf:Person .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#proposesAlgorithm
+or:proposesAlgorithm rdf:type owl:ObjectProperty ;
+                     rdfs:domain or:Approach ;
+                     rdfs:range mls:Algorithm .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#proposesModel
+or:proposesModel rdf:type owl:ObjectProperty ;
+                 rdfs:domain or:Approach ;
+                 rdfs:range mls:Model .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#provideSolution
+or:provideSolution rdf:type owl:ObjectProperty ;
+                   rdfs:domain or:Framework ;
+                   rdfs:range or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#supportTechnology
+or:supportTechnology rdf:type owl:ObjectProperty ;
+                     rdfs:domain or:Framework ;
+                     rdfs:range or:Technology .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#usedByApproach
+or:usedByApproach rdf:type owl:ObjectProperty ;
+                  rdfs:domain mls:Algorithm ;
+                  rdfs:range or:Approach .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#usesBenchmark
+or:usesBenchmark rdf:type owl:ObjectProperty ;
+                 rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+                 rdfs:range or:Benchmark .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#usesDataset
+or:usesDataset rdf:type owl:ObjectProperty ;
+               rdfs:domain or:EvaluationMethod ;
+               rdfs:range <http://dataid.dbpedia.org/ns/core#Dataset> .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#usesInformationAsset
+or:usesInformationAsset rdf:type owl:ObjectProperty ;
+                        rdfs:domain or:Benchmark ;
+                        rdfs:range or:InformationAsset .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#or:usesInfoAsset
+or:usesInfoAsset rdf:type owl:ObjectProperty ;
+                 rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+                 rdfs:range or:InformationAsset .
+
+
+###  http://www.w3.org/ns/mls#hasInput
+mls:hasInput rdfs:domain <http://purl.org/spar/deo/Evaluation> ;
+             rdfs:range or:InformationAsset .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://swrc.ontoware.org/ontology#abstract
+swrc:abstract rdfs:domain swrc:Publication .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasConclusion
+or:hasConclusion rdf:type owl:DatatypeProperty ;
+                 rdfs:domain swrc:Publication .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasDefinition
+or:hasDefinition rdf:type owl:DatatypeProperty ;
+                 rdfs:domain or:Problem ;
+                 rdfs:range xsd:string .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasDescription
+or:hasDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:domain or:EvaluationMethod .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasExperimentSetup
+or:hasExperimentSetup rdf:type owl:DatatypeProperty ;
+                      rdfs:domain <http://purl.org/spar/deo/Evaluation> .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasFutureWork
+or:hasFutureWork rdf:type owl:DatatypeProperty .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasGUI
+or:hasGUI rdf:type owl:DatatypeProperty ;
+          rdfs:domain or:Framework .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#hasName
+or:hasName rdf:type owl:DatatypeProperty .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#implementedInLang
+or:implementedInLang rdf:type owl:DatatypeProperty ;
+                     rdfs:domain or:Implementation ;
+                     rdfs:range xsd:string .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#problemType
+or:problemType rdf:type owl:DatatypeProperty ;
+               rdfs:domain or:Problem ;
+               rdfs:range xsd:string .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#usesInfoRepFormal
+or:usesInfoRepFormal rdf:type owl:DatatypeProperty ;
+                     rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dataid.dbpedia.org/ns/core#Dataset
+<http://dataid.dbpedia.org/ns/core#Dataset> rdf:type owl:Class .
+
+
+###  http://purl.org/dc/terms/BibliographicResource
+terms:BibliographicResource rdf:type owl:Class .
+
+
+###  http://schema.org/Person
+schema:Person rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.w3.org/2000/10/swap/pim/contact#Person> .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#API
+or:API rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Accuracy
+or:Accuracy rdf:type owl:Class ;
+            rdfs:subClassOf or:EvaluationDimensions .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#AlgorithmicProblem
+or:AlgorithmicProblem rdf:type owl:Class ;
+                      rdfs:subClassOf or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Approach
+or:Approach rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ArchitecturalModel
+or:ArchitecturalModel rdf:type owl:Class ;
+                      rdfs:subClassOf mls:Model .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Availability
+or:Availability rdf:type owl:Class ;
+                rdfs:subClassOf or:EvaluationDimensions .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Benchmark
+or:Benchmark rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Community
+or:Community rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Conclusion
+or:Conclusion rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Contributor
+or:Contributor rdf:type owl:Class ;
+               rdfs:subClassOf schema:Person .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Developer
+or:Developer rdf:type owl:Class ;
+             rdfs:subClassOf or:Contributor .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#EvaluationDimensions
+or:EvaluationDimensions rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#EvaluationMethod
+or:EvaluationMethod rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#EvaluationProcess
+or:EvaluationProcess rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Framework
+or:Framework rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#FunctionalProgramming
+or:FunctionalProgramming rdf:type owl:Class ;
+                         rdfs:subClassOf or:ProgrammingLanguage .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Hypothesis
+or:Hypothesis rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Implementation
+or:Implementation rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#InformationAsset
+or:InformationAsset rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#MathematicalModel
+or:MathematicalModel rdf:type owl:Class ;
+                     rdfs:subClassOf mls:Model .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#MathematicalProblem
+or:MathematicalProblem rdf:type owl:Class ;
+                       rdfs:subClassOf or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ObjectOrientedProgramming
+or:ObjectOrientedProgramming rdf:type owl:Class ;
+                             rdfs:subClassOf or:ProgrammingLanguage .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Observations
+or:Observations rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Performance
+or:Performance rdf:type owl:Class ;
+               rdfs:subClassOf or:EvaluationDimensions .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Pipeline
+or:Pipeline rdf:type owl:Class ;
+            rdfs:subClassOf mls:Model .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Problem
+or:Problem rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ProblemSolution
+or:ProblemSolution rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Professor
+or:Professor rdf:type owl:Class ;
+             rdfs:subClassOf or:Contributor .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ProgrammingLanguage
+or:ProgrammingLanguage rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#RelatedWork
+or:RelatedWork rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Requirements
+or:Requirements rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Results
+or:Results rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Scalability
+or:Scalability rdf:type owl:Class ;
+               rdfs:subClassOf or:EvaluationDimensions .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#StudentAssistant
+or:StudentAssistant rdf:type owl:Class ;
+                    rdfs:subClassOf or:Contributor .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SurveyGoals
+or:SurveyGoals rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#TechnicalRequirement
+or:TechnicalRequirement rdf:type owl:Class ;
+                        rdfs:subClassOf or:Requirements .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#TechnologicalProblem
+or:TechnologicalProblem rdf:type owl:Class ;
+                        rdfs:subClassOf or:Problem .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Technology
+or:Technology rdf:type owl:Class .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#TheoreticalRequirement
+or:TheoreticalRequirement rdf:type owl:Class ;
+                          rdfs:subClassOf or:Requirements .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Usability
+or:Usability rdf:type owl:Class ;
+             rdfs:subClassOf or:EvaluationDimensions .
+
+
+###  http://www.w3.org/2000/10/swap/pim/contact#Person
+<http://www.w3.org/2000/10/swap/pim/contact#Person> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/mls#InformationEntity
+mls:InformationEntity rdf:type owl:Class ;
+                      rdfs:subClassOf or:InformationAsset .
+
+
+###  http://www.w3.org/ns/mls#Model
+mls:Model rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ADERIS
+or:ADERIS rdf:type owl:NamedIndividual ,
+                   or:Framework ;
+          or:addressProblem or:Query_Execution ,
+                            or:SPARQL_query_Federation ,
+                            or:Source_Selection ;
+          or:implementedIn or:Java ;
+          or:provideSolution or:Nested_Loop_Join ,
+                             or:Predicate_List ;
+          or:supportTechnology or:SPARQL_1.0 ;
+          or:hasGUI "true"^^xsd:boolean ;
+          foaf:name "ADERIS" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ADERIS_conclusion
+or:ADERIS_conclusion rdf:type owl:NamedIndividual ,
+                              <http://purl.org/spar/deo/Conclusion> ;
+                     doap:description "The use of RDF (Resource Description Framework) data is a cornerstone of the Semantic Web. RDF data embedded in Web pages may be indexed using semantic search engines, however, RDF data is often stored in databases, accessible viaWeb Services using the SPARQL query language for RDF, which form part of the Deep Web which is not accessible using search engines. This paper addresses the problem of effectively integrating RDF data stored in separate Web-accessible databases. An approach based on distributed query processing is described, where data from multiple repositories are used to construct partitioned tables that are integrated using an adaptive query processing technique supporting join reordering, which limits any reliance on statistics and metadata about SPARQL endpoints, as such information is often inaccurate or unavailable, but is required by existing systems supporting federated SPARQL queries. The approach presented extends existing approaches in this area by allowing tables to be added to the query plan while it is executing, and shows how an approach currently used within relational query processing can be applied to distributed SPARQL query processing. The approach is evaluated using a prototype implementation and potential applications are discussed." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ANAPSID
+or:ANAPSID rdf:type owl:NamedIndividual ,
+                    or:Framework ;
+           or:addressProblem or:Query_Execution ,
+                             or:SPARQL_query_Federation ,
+                             or:Source_Selection ;
+           or:implementedIn or:Python ;
+           or:provideSolution or:Hash_Join ,
+                              or:Predicate_List ,
+                              or:XJoin ;
+           or:supportTechnology or:SPARQL_1.1 ;
+           doap:platform "ANAPSID" ;
+           or:hasGUI "true"^^xsd:boolean .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ASK
+or:ASK rdf:type owl:NamedIndividual ,
+                or:ProblemSolution ;
+       or:provideSolution or:ASK ,
+                          or:Bind_Join .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#A_semantic_web_middleware_for_virtual_data_integration_on_the_web
+or:A_semantic_web_middleware_for_virtual_data_integration_on_the_web rdf:type owl:NamedIndividual ,
+                                                                              swrc:Article ;
+                                                                     or:proposeFramework or:SemWIQ ;
+                                                                     swrc:year 2008 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Adaptive_Integration_of_Distributed_Semantic_Web_Data
+or:Adaptive_Integration_of_Distributed_Semantic_Web_Data rdf:type owl:NamedIndividual ,
+                                                                  swrc:Article ;
+                                                         or:proposeFramework or:ADERIS ;
+                                                         swrc:abstract """The use of RDF (Resource Description Framework) data is a cornerstone of the Semantic Web. RDF data embedded in Web pages may be indexed using semantic search engines, however, RDF data is often stored in databases, accessible viaWeb Services using the SPARQL query language for RDF, which form part of the Deep Web which is not accessible using search engines. This paper addresses the problem of effectively integrating RDF data stored in separate Web-accessible databases.
+An approach based on distributed query processing is described, where
+data from multiple repositories are used to construct partitioned tables
+that are integrated using an adaptive query processing technique supporting join reordering, which limits any reliance on statistics and metadata about SPARQL endpoints, as such information is often inaccurate
+or unavailable, but is required by existing systems supporting federated
+SPARQL queries. The approach presented extends existing approaches
+in this area by allowing tables to be added to the query plan while it is
+executing, and shows how an approach currently used within relational
+query processing can be applied to distributed SPARQL query processing.
+The approach is evaluated using a prototype implementation and
+potential applications are discussed.""" ;
+                                                         swrc:year 2010 ;
+                                                         or:hasConclusion "The use of RDF (Resource Description Framework) data is a cornerstone of the Semantic Web. RDF data embedded in Web pages may be indexed using semantic search engines, however, RDF data is often stored in databases, accessible viaWeb Services using the SPARQL query language for RDF, which form part of the Deep Web which is not accessible using search engines. This paper addresses the problem of effectively integrating RDF data stored in separate Web-accessible databases. An approach based on distributed query processing is described, where data from multiple repositories are used to construct partitioned tables that are integrated using an adaptive query processing technique supporting join reordering, which limits any reliance on statistics and metadata about SPARQL endpoints, as such information is often inaccurate or unavailable, but is required by existing systems supporting federated SPARQL queries. The approach presented extends existing approaches in this area by allowing tables to be added to the query plan while it is executing, and shows how an approach currently used within relational query processing can be applied to distributed SPARQL query processing. The approach is evaluated using a prototype implementation and potential applications are discussed." ;
+                                                         or:hasFutureWork "Future work will aim to investigate other data sets with different characteristics and larger data sets. As the approach presented in this paper focuses on efficiently executing a specific kind of query, that of adaptively ordering multiple joins, further work will focus on optimising other kinds of queries and implementing support for more SPARQL query language features. Future work will also concentrate on investigating how the work can be applied in various domains." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Avalanche
+or:Avalanche rdf:type owl:NamedIndividual ,
+                      or:Framework ;
+             or:addressProblem or:Query_Execution ,
+                               or:SPARQL_query_Federation ,
+                               or:Source_Selection ;
+             or:implementedIn or:Java ;
+             or:provideSolution or:Bind_Join ;
+             or:supportTechnology or:SPARQL_1.0 ;
+             doap:platform "Avalanche" ;
+             or:hasGUI "false"^^xsd:boolean ;
+             foaf:name "Avalanche" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Bind_Join
+or:Bind_Join rdf:type owl:NamedIndividual ,
+                      or:ProblemSolution ;
+             or:hasSolution or:Semi_Join .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Cross_Domain
+or:Cross_Domain rdf:type owl:NamedIndividual ,
+                         or:InformationAsset .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#DARQ
+or:DARQ rdf:type owl:NamedIndividual ,
+                 or:Framework ;
+        or:addressProblem or:Query_Execution ,
+                          or:SPARQL_query_Federation ,
+                          or:Source_Selection ;
+        or:hasEvaluation or:DARQ_Evaluation ;
+        or:implementedIn or:Java ;
+        or:provideSolution or:Bind_Join ,
+                           or:Nested_Loop_Join ,
+                           or:Statistic_of_Predicate ;
+        or:supportTechnology or:SPARQL_1.0 ;
+        doap:platform "Jena" ;
+        or:hasGUI "false"^^xsd:boolean ;
+        foaf:name "DARQ" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#DARQEvalMethod
+or:DARQEvalMethod rdf:type owl:NamedIndividual ,
+                           or:EvaluationMethod ;
+                  or:hasEvaluationDimension or:Runtime_performance ;
+                  or:hasDescription "Evaluate the performance of the DARQ query engine b y running four example queries and evaluated the runtime with and without optimization." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#DARQ_Evaluation
+or:DARQ_Evaluation rdf:type owl:NamedIndividual ,
+                            <http://purl.org/spar/deo/Evaluation> ;
+                   or:followsEvaluationMethod or:DARQEvalMethod ;
+                   or:hasResult or:DARQ_results ;
+                   mls:hasInput or:DBpedia ;
+                   or:hasExperimentSetup "Split all data over two Sun-Fire-880 machines (8x sparcv9 CPU, 1050 Mhz, 16GB RAM) running SunOS 5.10. The SPARQL endpoints were provided using Virtuoso Server 5.0.3 with an allowed memory usage of 8 GB . Note that, although we use only two physical servers, there were five logical SPARQL endpoints. DARQ was running on Sun Java 1.6.0 on a Linux system with Intel Core Duo CPUs, 2.13 GHz and 4GB RAM. The machines were connected over a standard 100Mbit network connection." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#DARQ_results
+or:DARQ_results rdf:type owl:NamedIndividual ,
+                         or:Results ;
+                or:hasDescription "All queries answered within less than one and a half minutes." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#DBpedia
+or:DBpedia rdf:type owl:NamedIndividual ,
+                    or:InformationAsset .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Distributed_SPARQL
+or:Distributed_SPARQL rdf:type owl:NamedIndividual ,
+                               or:Framework ;
+                      or:addressProblem or:Query_Execution ,
+                                        or:SPARQL_query_Federation ,
+                                        or:Source_Selection ;
+                      or:implementedIn or:Java ;
+                      or:provideSolution or:Bind_Join ;
+                      or:supportTechnology or:SPARQL_1.0 ;
+                      doap:platform "Sesame" ;
+                      or:hasGUI "false"^^xsd:boolean ;
+                      foaf:name "Distributed_SPARQL" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#FedBench
+or:FedBench rdf:type owl:NamedIndividual ,
+                     or:Benchmark .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#FedX
+or:FedX rdf:type owl:NamedIndividual ,
+                 or:Framework ;
+        or:addressProblem or:Query_Execution ,
+                          or:SPARQL_query_Federation ,
+                          or:Source_Selection ;
+        or:hasEvaluation or:Fedx_Evaluation ;
+        or:implementedIn or:Java ;
+        or:provideSolution or:ASK ,
+                           or:Bind_Join ,
+                           or:Parallelization ;
+        or:supportTechnology or:SPARQL_1.0 ;
+        doap:platform "Sesame" ;
+        or:hasGUI "true"^^xsd:boolean ;
+        foaf:name "FedX" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#FedxEvalMethod
+or:FedxEvalMethod rdf:type owl:NamedIndividual ,
+                           or:EvaluationMethod ;
+                  or:hasEvaluationDimension or:Runtime_performance ;
+                  or:hasDescription "Analyzing the efficiency and effectiveness of federated query processing strategies  over semantic data" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Fedx_Evaluation
+or:Fedx_Evaluation rdf:type owl:NamedIndividual ,
+                            <http://purl.org/spar/deo/Evaluation> ;
+                   or:followsEvaluationMethod or:FedxEvalMethod ;
+                   or:hasResult or:fedx_results ;
+                   mls:hasInput or:Cross_Domain ,
+                                or:Life_Science ;
+                   or:hasExperimentSetup "All experiments are carried out on an HP Proliant DL360 G6 with 2GHz 4Core CPU with 128KB L1 Cache, 1024KB L2 Cache, 4096KB L3 Cache, 32GB 1333MHz RAM, and a 160 GB SCSI hard drive. A 64bit Windows 2008 Server operating system and the 64bit Java VM 1.6.0 22 constitute the software environment." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#GDS
+or:GDS rdf:type owl:NamedIndividual ,
+                or:Framework ;
+       or:addressProblem or:Query_Execution ,
+                         or:SPARQL_query_Federation ,
+                         or:Source_Selection ;
+       or:provideSolution or:Bind_Join ,
+                          or:Semi_Join ;
+       or:supportTechnology or:SPARQL_1.0 ;
+       doap:platform "Jena" ;
+       or:hasGUI "false"^^xsd:boolean ;
+       foaf:name "GDS" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Hash_Join
+or:Hash_Join rdf:type owl:NamedIndividual ,
+                      or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Java
+or:Java rdf:type owl:NamedIndividual ,
+                 or:ObjectOrientedProgramming .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Life_Science
+or:Life_Science rdf:type owl:NamedIndividual ,
+                         or:InformationAsset .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Motivation_of_SPARQL_query_Federation
+or:Motivation_of_SPARQL_query_Federation rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/spar/deo/Motivation> ;
+                                         or:motivatesApproach or:adaptive_query_processing_approach ,
+                                                              or:decomposition_approach ;
+                                         or:hasDescription "unified query processing over RDF data sources accessible via SPARQL endpoints" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Nested_Loop_Join
+or:Nested_Loop_Join rdf:type owl:NamedIndividual ,
+                             or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Optimizing_SPARQL_queries_over_disparate_RDF_data_sources_through_distributed_semi-joins
+or:Optimizing_SPARQL_queries_over_disparate_RDF_data_sources_through_distributed_semi-joins rdf:type owl:NamedIndividual ,
+                                                                                                     swrc:Article ;
+                                                                                            or:proposeFramework or:Distributed_SPARQL ;
+                                                                                            swrc:year 2007 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Parallelization
+or:Parallelization rdf:type owl:NamedIndividual ,
+                            or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Predicate_List
+or:Predicate_List rdf:type owl:NamedIndividual ,
+                           or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Python
+or:Python rdf:type owl:NamedIndividual ,
+                   or:ObjectOrientedProgramming .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Query_Execution
+or:Query_Execution rdf:type owl:NamedIndividual ,
+                            or:Problem ;
+                   or:hasSolution or:Bind_Join ,
+                                  or:Hash_Join ,
+                                  or:Nested_Loop_Join ,
+                                  or:Semi_Join ,
+                                  or:XJoin ;
+                   or:implementedIn or:Python ;
+                   or:isSubproblem or:SPARQL_query_Federation ;
+                   swrc:name "Query Execution" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Query_Optimization
+or:Query_Optimization rdf:type owl:NamedIndividual ,
+                               or:Problem ;
+                      or:isSubproblem or:SPARQL_query_Federation .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Querying_Distributed_RDF_Data_Sources_with_SPARQL
+or:Querying_Distributed_RDF_Data_Sources_with_SPARQL rdf:type owl:NamedIndividual ,
+                                                              swrc:Article ;
+                                                     or:proposeFramework or:DARQ ;
+                                                     swrc:year 2008 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Querying_the_Web_of_Data_with_Graph_Theory-based_Techniques
+or:Querying_the_Web_of_Data_with_Graph_Theory-based_Techniques rdf:type owl:NamedIndividual ,
+                                                                        swrc:Article ;
+                                                               or:proposeFramework or:GDS ;
+                                                               swrc:year 2006 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Querying_the_web_of_interlinked_datasets_using_void_descriptions
+or:Querying_the_web_of_interlinked_datasets_using_void_descriptions rdf:type owl:NamedIndividual ,
+                                                                             swrc:Article ;
+                                                                    or:proposeFramework or:WoDQA ;
+                                                                    swrc:abstract """Query processing is an important way of accessing data on the Semantic Web. Today, the Semantic Web is characterized
+as a web of interlinked datasets, and thus querying the web can be seen as dataset integration on the web. Also, this
+dataset integration must be transparent from the data consumer as if she is querying the whole web. To decide which
+datasets should be selected and integrated for a query, one requires a metadata of the web of data. In this paper, to
+enable this transparency, we introduce a federated query engine called WoDQA (Web of Data Query Analyzer) which
+discovers datasets relevant with a query in an automated manner using VOID documents as metadata. WoDQA focuses
+on powerful dataset elimination by analyzing query structure with respect to the metadata of datasets. Dataset
+and linkset descriptions in VOID documents are analyzed for a SPARQL query and a federated query is constructed. By
+means of linkset concept of VOID, links between datasets are incorporated into selection of federated data sources. Current
+version ofWoDQA is available as a SPARQL endpoint.""" ;
+                                                                    swrc:year 2012 ;
+                                                                    or:hasConclusion """In this paper, we have introduced a query federation engine calledWoDQA that discovers related datasets in a VOID
+store for a query and distributes the query over these datasets. The novelty of our approach is exhaustive dataset selection
+mechanism which includes analysis of triple pattern relations and links between datasets besides analyzing datasets for
+each triple pattern. WoDQA focuses on discovering relevant datasets and eliminating irrelevant ones using a rule-based
+approach introduced in this paper. Our approach requires VOID descriptions which include a SPARQL endpoint to
+query the dataset, reflect actual content of the dataset completely and accurately, and include linksets between datasets
+to select datasets effectively. WoDQA allows users to construct raw queries without the need to know how query will
+divide into sub-queries and where sub-queries are executed. Query results are complete under the assumption of available,
+accurate and complete VOID descriptions of datasets. The initial version of WoDQA which is introduced in this
+paper has some disadvantages arising from query federation approach which WoDQA builds upon. As mentioned previously,
+follow-your-nose has some problems such as missing results and large document retrieval. Similar problems may
+occur for query federation. Firstly, to find complete resultsto queries, it is required that metadata of all datasets must
+be well-defined and accurate. But, to provide such an accurate dataset metadata an automated mechanism which
+continuously updates the metadata is required. However, even there would be a tool which implements this requirement,
+providing accurate dataset metadata via such a tool is the responsibility of dataset publishers.
+Another problems of query federation are high latency and low selectivity of datasets which are similar to retrieval
+of large documents in follow-your-nose. Query optimization can be a solution for these problems of query federation.
+Grouping triple patterns to filter more triples on an endpoint can prevent high latency (required processing time)
+and changing query evaluation order according to dataset selectivity statistics can prevent retrieving large result sets.
+To make WoDQA functioning in the wild, optimization step of query federation is required to be implemented. We plan
+to incorporate triple pattern selectivity into query reorganization using VOID properties about statistics.
+On the other hand, we could not make an evaluation of our approach in this paper, since VOID documents in current
+VOID stores are not well-defined. Since SPARQL endpoint definitions, linkset descriptions or vocabularies are missing
+in most of VOID documents, we could not find a chance to execute comprehensive scenarios.""" ;
+                                                                    or:hasFutureWork """Developing a tool which extracts well-defined VOID descriptions of datasets, and by this means evaluating our approach is a required future work
+to confirm applicability of WoDQA on linked open data. Also, evaluating the analysis cost of WoDQA for a large VOID store will be possible when well-defined VOIDs are constructed.""" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Runtime_performance
+or:Runtime_performance rdf:type owl:NamedIndividual ,
+                                or:Performance ;
+                       or:hasDimension or:Runtime_performance .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SPARQL_1.0
+or:SPARQL_1.0 rdf:type owl:NamedIndividual ,
+                       or:Technology ;
+              foaf:name "SPARQL 1.0" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SPARQL_1.1
+or:SPARQL_1.1 rdf:type owl:NamedIndividual ,
+                       or:Technology ;
+              foaf:name "SPARQL 1.1" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SPARQL_query_Federation
+or:SPARQL_query_Federation rdf:type owl:NamedIndividual ,
+                                    or:Problem ;
+                           or:hasMovitation or:Motivation_of_SPARQL_query_Federation .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SemWIQ
+or:SemWIQ rdf:type owl:NamedIndividual ,
+                   or:Framework ;
+          or:addressProblem or:Query_Execution ,
+                            or:SPARQL_query_Federation ,
+                            or:Source_Selection ;
+          or:hasSolution or:Statistic_of_Predicate ;
+          or:implementedIn or:Java ;
+          or:provideSolution or:Bind_Join ;
+          or:supportTechnology or:SPARQL_1.1 ;
+          doap:platform "Jena" ;
+          or:hasGUI "true"^^xsd:boolean .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Semi_Join
+or:Semi_Join rdf:type owl:NamedIndividual ,
+                      or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Source_Selection
+or:Source_Selection rdf:type owl:NamedIndividual ,
+                             or:Problem ;
+                    or:hasSolution or:ASK ,
+                                   or:Predicate_List ,
+                                   or:Statistic_of_Predicate ,
+                                   or:ontologies ;
+                    or:isSubproblem or:SPARQL_query_Federation ;
+                    foaf:name "Source Selection" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Splendid
+or:Splendid rdf:type owl:NamedIndividual ,
+                     or:Framework ;
+            or:addressProblem or:SPARQL_query_Federation ;
+            or:provideSolution or:Bind_Join ,
+                               or:Hash_Join ;
+            or:supportTechnology or:SPARQL_1.0 ;
+            doap:platform "Sesame" ;
+            or:hasGUI "false"^^xsd:boolean ;
+            foaf:name "Splendid" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Statistic_of_Predicate
+or:Statistic_of_Predicate rdf:type owl:NamedIndividual ,
+                                   or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#WoDQA
+or:WoDQA rdf:type owl:NamedIndividual ,
+                  or:Framework ;
+         or:addressProblem or:Query_Execution ,
+                           or:SPARQL_query_Federation ,
+                           or:Source_Selection ;
+         or:implementedIn or:Java ;
+         or:provideSolution or:Predicate_List ,
+                            or:ontologies ;
+         or:supportTechnology or:SPARQL_1.1 ;
+         doap:platform "Jena" ;
+         or:hasGUI "true"^^xsd:boolean .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#WoDQA_Conclusion
+or:WoDQA_Conclusion rdf:type owl:NamedIndividual ,
+                             <http://purl.org/spar/deo/Conclusion> ;
+                    doap:description """In this paper, we have introduced a query federation engine calledWoDQA that discovers related datasets in a VOID
+store for a query and distributes the query over these datasets. The novelty of our approach is exhaustive dataset selection
+mechanism which includes analysis of triple pattern relations and links between datasets besides analyzing datasets for
+each triple pattern. WoDQA focuses on discovering relevant datasets and eliminating irrelevant ones using a rule-based
+approach introduced in this paper. Our approach requires VOID descriptions which include a SPARQL endpoint to
+query the dataset, reflect actual content of the dataset completely and accurately, and include linksets between datasets
+to select datasets effectively. WoDQA allows users to construct raw queries without the need to know how query will
+divide into sub-queries and where sub-queries are executed. Query results are complete under the assumption of available,
+accurate and complete VOID descriptions of datasets. The initial version of WoDQA which is introduced in this
+paper has some disadvantages arising from query federation approach which WoDQA builds upon. As mentioned previously,
+follow-your-nose has some problems such as missing results and large document retrieval. Similar problems may
+occur for query federation. Firstly, to find complete resultsto queries, it is required that metadata of all datasets must
+be well-defined and accurate. But, to provide such an accurate dataset metadata an automated mechanism which
+continuously updates the metadata is required. However, even there would be a tool which implements this requirement,
+providing accurate dataset metadata via such a tool is the responsibility of dataset publishers.
+Another problems of query federation are high latency and low selectivity of datasets which are similar to retrieval
+of large documents in follow-your-nose. Query optimization can be a solution for these problems of query federation.
+Grouping triple patterns to filter more triples on an endpoint can prevent high latency (required processing time)
+and changing query evaluation order according to dataset selectivity statistics can prevent retrieving large result sets.
+To make WoDQA functioning in the wild, optimization step of query federation is required to be implemented. We plan
+to incorporate triple pattern selectivity into query reorganization using VOID properties about statistics.
+On the other hand, we could not make an evaluation of our approach in this paper, since VOID documents in current
+VOID stores are not well-defined. Since SPARQL endpoint definitions, linkset descriptions or vocabularies are missing
+in most of VOID documents, we could not find a chance to execute comprehensive scenarios.""" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#XJoin
+or:XJoin rdf:type owl:NamedIndividual ,
+                  or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#adaptive_query_processing_approach
+or:adaptive_query_processing_approach rdf:type owl:NamedIndividual ,
+                                               or:Approach ;
+                                      or:hasImplementation or:ANAPSID .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#decomposition_approach
+or:decomposition_approach rdf:type owl:NamedIndividual ,
+                                   or:Approach ;
+                          or:hasImplementation or:FedX ;
+                          or:hasDescription "decomposition approach that relies on exclusive groups" .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#fedx_results
+or:fedx_results rdf:type owl:NamedIndividual ,
+                         or:Results ;
+                or:followsEvaluationMethod or:FedxEvalMethod ;
+                or:hasDescription "FedX improves query performance significantly for most queries.the total runtime is improved by more than an order of magnitude.The improvement is best explained by the reduction in the number of requests." .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ontologies
+or:ontologies rdf:type owl:NamedIndividual ,
+                       or:ProblemSolution .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#ANAPSID:_An_Adaptive_Query_Processing_Engine_for_SPARQL_Endpoints
+or:_An_Adaptive_Query_Processing_Engine_for_SPARQL_Endpoints rdf:type owl:NamedIndividual ,
+                                                                      swrc:Article ;
+                                                             or:proposeFramework or:ANAPSID ;
+                                                             swrc:year 2011 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#Avalanche:_Putting_the_spirit_of_the_web_back_into_semantic_web_querying
+or:_Putting_the_spirit_of_the_web_back_into_semantic_web_querying rdf:type owl:NamedIndividual ,
+                                                                           swrc:Article ;
+                                                                  or:proposeFramework or:Avalanche ;
+                                                                  swrc:year 2010 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#FedX:_a_federation_layer_for_distributed_query_processing_on_linked_open_data
+or:_a_federation_layer_for_distributed_query_processing_on_linked_open_data rdf:type owl:NamedIndividual ,
+                                                                                     swrc:Article ;
+                                                                            or:proposeFramework or:FedX ;
+                                                                            swrc:year 2011 .
+
+
+###  http://vocab.cs.uni-bonn.de/unistruct#SPLENDID:_SPARQL_Endpoint_Federation_Exploiting_VOID_Descriptions
+or:_SPARQL_Endpoint_Federation_Exploiting_VOID_Descriptions rdf:type owl:NamedIndividual ,
+                                                                     swrc:Article ;
+                                                            or:proposeFramework or:Splendid ;
+                                                            swrc:year 2011 .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
